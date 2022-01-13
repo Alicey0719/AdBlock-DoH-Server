@@ -24,5 +24,6 @@ AdGuardHomeの構成ファイルなどが作成されます。
 doh-serverのDockerfileがあります。
 
 # 注意事項
-基本的にサポートはしません。致命的な欠陥等ありましたらTwitter等でお知らせください。  
-FirefoxやChrome等でアクセスする場合は別途nginx等で中継し、HTTPSの状態にしないとアクセスできないと思われます。
+- 基本的にサポートはしません。致命的な欠陥等ありましたらTwitter等でお知らせください。  
+- FirefoxやChrome等でアクセスする場合は別途nginx等で中継し、HTTPSの状態にしないとアクセスできないと思われます。
+- AdGuadHomeの初期設定は、80ポートからのアクセスになります。手動でコンフィグを入れない場合はdocker-compose.ymlの編集が必要になります。

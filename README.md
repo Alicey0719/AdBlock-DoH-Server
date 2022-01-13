@@ -6,7 +6,7 @@ AdGuardHomeにはDNS over HTTPSの機能が標準で搭載されていますが�
 ## アクセス先
 - host:20012  
 AdGuardHome管理画面
-- host:80/dns-query
+- host:80/dns-query  
 HTTP越しのアクセス
 
 ## 各ファイルの説明

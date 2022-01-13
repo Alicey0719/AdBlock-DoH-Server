@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  adg:
+    image: adguard/adguardhome
+    container_name: adg
+    volumes:
+      - "./adg/own/workdir:/opt/adguardhome/work"
+      - "./adg/own/confdir:/opt/adguardhome/conf"
+    ports:
+      # - "80:80"
+      # - "443:443"
+      - "20012:20012"
+    logging:
+      driver: json-file
+      options:
+        max-file: '1'
+        max-size: 1m
+  doh-server:
+    build: ./doh-server/
+    container_name: doh-server
+    ports:
+      - "80:80"
+      # - "443:443"
+    command: /bin/bash -c "pipenv run doh-httpproxy --level DEBUG --upstream-resolver adg --listen-address=0.0.0.0 --trusted=0.0.0.0 --port 80"
+    logging:
+      driver: json-file
+      options:
+        max-file: '1'
+        max-size: 1m
+
+networks:
+    doh-backend:
+        external: true
